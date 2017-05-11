@@ -5,7 +5,7 @@
   xmlns:local="clr-namespace:TwitterSafari"
   x:Class="TwitterSafari.MainPage">
 
-  <Grid>
+  <Grid ColumnSpacing="0" RowSpacing="0" BackgroundColor="{StaticResource HeaderColor}">
     <Grid.ColumnDefinitions>
       <ColumnDefinition Width="3*"/>
       <ColumnDefinition/>
@@ -14,14 +14,30 @@
       <RowDefinition Height="Auto"/>
       <RowDefinition/>
     </Grid.RowDefinitions>
-    
-    <Entry x:Name="_searchEntry" Placeholder="Search"/>
+
+    <Entry x:Name="_searchEntry" Placeholder="Search" PlaceholderColor="White" TextColor="White"/>
     <Button Grid.Column="1" Text="GO" Clicked="OnSearchClicked"/>
 
-    <ListView Grid.ColumnSpan="2" Grid.Row="1" ItemsSource="{Binding Tweets}">
+    <ListView Grid.ColumnSpan="2" Grid.Row="1" ItemsSource="{Binding Tweets}" RowHeight="150" BackgroundColor="Black" SeparatorColor="Transparent">
       <ListView.ItemTemplate>
         <DataTemplate>
-          <ImageCell ImageSource="{Binding ImageUrl}" Text="{Binding ScreenName}" Detail="{Binding Text}"/>
+          <ViewCell>
+            <Grid>
+              <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="60"/>
+                <ColumnDefinition/>
+              </Grid.ColumnDefinitions>
+              <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition/>
+              </Grid.RowDefinitions>
+
+              <Image Source="{Binding ImageUrl}" HorizontalOptions="Center" VerticalOptions="Center" HeightRequest="60" WidthRequest="60"/>
+              <Label Grid.Row="1" Text="{Binding Name}" HorizontalOptions="Center" TextColor="White"/>
+              <Label Grid.Column="1" Grid.RowSpan="2" Text="{Binding Text}" Margin="5,10" TextColor="White" FontSize="Medium"/>
+              <BoxView Grid.ColumnSpan="2" Grid.Row="1" VerticalOptions="End" HeightRequest="1" BackgroundColor="White"/>
+            </Grid>
+          </ViewCell>
         </DataTemplate>
       </ListView.ItemTemplate>
     </ListView>
