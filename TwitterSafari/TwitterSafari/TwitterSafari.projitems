@@ -13,6 +13,8 @@
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
     <Compile Include="$(MSBuildThisFileDirectory)Controls\HtmlLabel.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Controls\KerningLabel.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Controls\MultiLabel.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
@@ -29,8 +31,5 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-  </ItemGroup>
-  <ItemGroup>
-    <Folder Include="$(MSBuildThisFileDirectory)Controls\" />
   </ItemGroup>
 </Project>

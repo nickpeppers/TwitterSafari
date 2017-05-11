@@ -125,6 +125,7 @@
   <ItemGroup>
     <Compile Include="Renderers\HtmlLabelRenderer.cs" />
     <Compile Include="MainActivity.cs" />
+    <Compile Include="Renderers\KerningLabelRenderer.cs" />
     <Compile Include="Resources\Resource.Designer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -134,15 +135,87 @@
     <None Include="Assets\AboutAssets.txt" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\Drawable\Icon.png" />
-  </ItemGroup>
-  <ItemGroup>
     <AndroidResource Include="Resources\layout\Tabbar.axml" />
     <AndroidResource Include="Resources\layout\Toolbar.axml" />
     <AndroidResource Include="Resources\values\styles.xml" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Properties\AndroidManifest.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="..\..\Assets\Android\drawable\Icon.png">
+      <Link>Resources\drawable\Icon.png</Link>
+    </AndroidResource>
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="..\..\Assets\Android\drawable\SplashIcon.png">
+      <Link>Resources\drawable\SplashIcon.png</Link>
+    </AndroidResource>
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="..\..\Assets\Android\drawable\TopBarIcon.png">
+      <Link>Resources\drawable\TopBarIcon.png</Link>
+    </AndroidResource>
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="..\..\Assets\Android\drawable-hdpi\Icon.png">
+      <Link>Resources\drawable-hdpi\Icon.png</Link>
+    </AndroidResource>
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="..\..\Assets\Android\drawable-hdpi\SplashIcon.png">
+      <Link>Resources\drawable-hdpi\SplashIcon.png</Link>
+    </AndroidResource>
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="..\..\Assets\Android\drawable-hdpi\TopBarIcon.png">
+      <Link>Resources\drawable-hdpi\TopBarIcon.png</Link>
+    </AndroidResource>
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="..\..\Assets\Android\drawable-xhdpi\Icon.png">
+      <Link>Resources\drawable-xhdpi\Icon.png</Link>
+    </AndroidResource>
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="..\..\Assets\Android\drawable-xhdpi\SplashIcon.png">
+      <Link>Resources\drawable-xhdpi\SplashIcon.png</Link>
+    </AndroidResource>
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="..\..\Assets\Android\drawable-xhdpi\TopBarIcon.png">
+      <Link>Resources\drawable-xhdpi\TopBarIcon.png</Link>
+    </AndroidResource>
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="..\..\Assets\Android\drawable-xxhdpi\Icon.png">
+      <Link>Resources\drawable-xxhdpi\Icon.png</Link>
+    </AndroidResource>
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="..\..\Assets\Android\drawable-xxhdpi\SplashIcon.png">
+      <Link>Resources\drawable-xxhdpi\SplashIcon.png</Link>
+    </AndroidResource>
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="..\..\Assets\Android\drawable-xxhdpi\TopBarIcon.png">
+      <Link>Resources\drawable-xxhdpi\TopBarIcon.png</Link>
+    </AndroidResource>
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="..\..\Assets\Android\drawable-xxxhdpi\Icon.png">
+      <Link>Resources\drawable-xxxhdpi\Icon.png</Link>
+    </AndroidResource>
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="..\..\Assets\Android\drawable-xxxhdpi\SplashIcon.png">
+      <Link>Resources\drawable-xxxhdpi\SplashIcon.png</Link>
+    </AndroidResource>
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="..\..\Assets\Android\drawable-xxxhdpi\TopBarIcon.png">
+      <Link>Resources\drawable-xxxhdpi\TopBarIcon.png</Link>
+    </AndroidResource>
   </ItemGroup>
   <Import Project="..\TwitterSafari\TwitterSafari.projitems" Label="Shared" Condition="Exists('..\TwitterSafari\TwitterSafari.projitems')" />
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
