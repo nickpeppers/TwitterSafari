@@ -19,7 +19,8 @@ namespace TwitterSafari.Models
             get { return _tweets; }
             set
             {
-                if (_tweets == value) return;
+                if (_tweets == value)
+                    return;
 
                 _tweets = value;
                 OnPropertyChanged();
@@ -58,18 +59,16 @@ namespace TwitterSafari.Models
                 select search)
                .SingleAsync();
 
-            var tweets =
-                (from tweet in searchResponse.Statuses
-                 select new Tweet
-                 {
-                     StatusID = tweet.StatusID,
-                     Name = tweet.User.Name,
-                     Text = tweet.Text,
-                     Location = tweet.User.Location,
-                     Followers = tweet.User.FollowersCount,
-                     ImageUrl = tweet.User.ProfileImageUrl
-                 });
-
+            var tweets =(from tweet in searchResponse.Statuses select new Tweet
+            {
+                StatusID = tweet.StatusID,
+                Name = tweet.User.Name,
+                Text = tweet.Text,
+                Location = tweet.User.Location,
+                Followers = tweet.User.FollowersCount,
+                ImageUrl = tweet.User.ProfileImageUrl
+            });
+            
             Tweets = new ObservableCollection<Tweet>(tweets);
         }
 
