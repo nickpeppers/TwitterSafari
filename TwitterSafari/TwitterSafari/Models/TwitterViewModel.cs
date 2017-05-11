@@ -66,7 +66,8 @@ namespace TwitterSafari.Models
                 Text = tweet.Text,
                 Location = tweet.User.Location,
                 Followers = tweet.User.FollowersCount,
-                ImageUrl = tweet.User.ProfileImageUrl
+                ImageUrl = tweet.User.ProfileImageUrl,
+                BackgroundImageUrl = tweet.User.ProfileBackgroundImageUrl
             });
             
             Tweets = new ObservableCollection<Tweet>(tweets);

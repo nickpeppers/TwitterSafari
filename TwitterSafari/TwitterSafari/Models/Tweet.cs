@@ -14,6 +14,8 @@ namespace TwitterSafari.Models
 
         public string ImageUrl { get; set; }
 
+        public string BackgroundImageUrl { get; set; }
+
         public string Location { get; set; }
 
         public int Followers { get; set; }
