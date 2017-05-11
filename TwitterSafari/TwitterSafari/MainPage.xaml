@@ -3,22 +3,30 @@
   xmlns="http://xamarin.com/schemas/2014/forms"
   xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
   xmlns:local="clr-namespace:TwitterSafari"
-  x:Class="TwitterSafari.MainPage">
+  x:Class="TwitterSafari.MainPage"
+  BackgroundColor="Black">
 
-  <Grid ColumnSpacing="0" RowSpacing="0" BackgroundColor="{StaticResource HeaderColor}">
+  <Grid ColumnSpacing="0" RowSpacing="0" BackgroundColor="Black">
     <Grid.ColumnDefinitions>
       <ColumnDefinition Width="3*"/>
       <ColumnDefinition/>
     </Grid.ColumnDefinitions>
     <Grid.RowDefinitions>
+      <RowDefinition Height="66"/>
       <RowDefinition Height="Auto"/>
       <RowDefinition/>
     </Grid.RowDefinitions>
 
-    <Entry x:Name="_searchEntry" Placeholder="Search" PlaceholderColor="White" TextColor="White"/>
-    <Button Grid.Column="1" Text="GO" Clicked="OnSearchClicked"/>
+    <BoxView  Grid.ColumnSpan="2"  Grid.RowSpan="2" BackgroundColor="{StaticResource HeaderColor}"/>
+    <local:KerningLabel Grid.ColumnSpan="2" Text="TWITTER SAFARI" FontSize="Large" Kerning="3" TextColor="White" HorizontalOptions="Center" VerticalOptions="Center"/>
+    <Image Grid.ColumnSpan="2" Source="TopBarIcon" Margin="3" HorizontalOptions="Start" VerticalOptions="Center"/>
 
-    <ListView Grid.ColumnSpan="2" Grid.Row="1" ItemsSource="{Binding Tweets}" RowHeight="150" BackgroundColor="Black" SeparatorColor="Transparent">
+    <Entry x:Name="_searchEntry" Grid.Row="1" Margin="3,0" Placeholder="Search" PlaceholderColor="White" TextColor="White"/>
+    <Button  Grid.Row="1" Grid.Column="1" Text="GO" Clicked="OnSearchClicked"/>
+
+    <Image x:Name="_backgroundImage" Grid.ColumnSpan="2" Grid.Row="2" Source="SplashIcon" HorizontalOptions="Center" VerticalOptions="Center"/>
+
+    <ListView Grid.ColumnSpan="2" Grid.Row="2" ItemsSource="{Binding Tweets}" RowHeight="150" BackgroundColor="Transparent" SeparatorColor="Transparent">
       <ListView.ItemTemplate>
         <DataTemplate>
           <ViewCell>

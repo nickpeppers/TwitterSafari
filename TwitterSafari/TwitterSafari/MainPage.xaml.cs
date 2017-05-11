@@ -42,6 +42,7 @@ namespace TwitterSafari
                     return;
 
                 await _twitterViewModel.Search(searchText);
+                _backgroundImage.IsVisible = false;
             }
             finally
             {
