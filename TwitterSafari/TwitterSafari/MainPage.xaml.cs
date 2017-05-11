@@ -37,7 +37,7 @@ namespace TwitterSafari
 
             try
             {
-                var searchText = _searchEntry.Text;
+                var searchText = _searchEntry.Text.Trim();
                 if (string.IsNullOrEmpty(searchText))
                     return;
 

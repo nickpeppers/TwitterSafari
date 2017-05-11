@@ -139,8 +139,6 @@
     </AndroidResource>
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\layout\Tabbar.axml" />
-    <AndroidResource Include="Resources\layout\Toolbar.axml" />
     <AndroidResource Include="Resources\values\styles.xml" />
   </ItemGroup>
   <ItemGroup>
@@ -219,6 +217,31 @@
   <ItemGroup>
     <AndroidResource Include="..\..\Assets\Android\drawable-xxxhdpi\TopBarIcon.png">
       <Link>Resources\drawable-xxxhdpi\TopBarIcon.png</Link>
+    </AndroidResource>
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="..\..\Assets\Android\drawable\Compass.png">
+      <Link>Resources\drawable\Compass.png</Link>
+    </AndroidResource>
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="..\..\Assets\Android\drawable-hdpi\Compass.png">
+      <Link>Resources\drawable-hdpi\Compass.png</Link>
+    </AndroidResource>
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="..\..\Assets\Android\drawable-xhdpi\Compass.png">
+      <Link>Resources\drawable-xhdpi\Compass.png</Link>
+    </AndroidResource>
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="..\..\Assets\Android\drawable-xxhdpi\Compass.png">
+      <Link>Resources\drawable-xxhdpi\Compass.png</Link>
+    </AndroidResource>
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="..\..\Assets\Android\drawable-xxxhdpi\Compass.png">
+      <Link>Resources\drawable-xxxhdpi\Compass.png</Link>
     </AndroidResource>
   </ItemGroup>
   <Import Project="..\TwitterSafari\TwitterSafari.projitems" Label="Shared" Condition="Exists('..\TwitterSafari\TwitterSafari.projitems')" />

@@ -24,7 +24,7 @@
     <Entry x:Name="_searchEntry" Grid.Row="1" Margin="3,0" Placeholder="Search" PlaceholderColor="White" TextColor="White"/>
     <Button  Grid.Row="1" Grid.Column="1" Text="GO" Clicked="OnSearchClicked"/>
 
-    <Image x:Name="_backgroundImage" Grid.ColumnSpan="2" Grid.Row="2" Source="SplashIcon" HorizontalOptions="Center" VerticalOptions="Center"/>
+    <Image x:Name="_backgroundImage" Grid.ColumnSpan="2" Grid.Row="2" Source="Compass" HorizontalOptions="Center" VerticalOptions="Center"/>
 
     <ListView Grid.ColumnSpan="2" Grid.Row="2" ItemsSource="{Binding Tweets}" RowHeight="150" BackgroundColor="Transparent" SeparatorColor="Transparent">
       <ListView.ItemTemplate>
