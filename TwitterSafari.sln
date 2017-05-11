@@ -13,7 +13,9 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TwitterSafari.UWP", "Twitte
 EndProject
 Global
 	GlobalSection(SharedMSBuildProjectFiles) = preSolution
+		TwitterSafari\TwitterSafari\TwitterSafari.projitems*{15d6aac0-95bc-4152-803c-44970136d4a2}*SharedItemsImports = 4
 		TwitterSafari\TwitterSafari\TwitterSafari.projitems*{294e3761-f657-4556-a4be-2a61cbcbd80d}*SharedItemsImports = 13
+		TwitterSafari\TwitterSafari\TwitterSafari.projitems*{96d1018c-fe9f-41ba-b02e-1a0f698e7ee3}*SharedItemsImports = 4
 		TwitterSafari\TwitterSafari\TwitterSafari.projitems*{b7446627-5ad2-469f-a8da-b200df6460bc}*SharedItemsImports = 4
 	EndGlobalSection
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
