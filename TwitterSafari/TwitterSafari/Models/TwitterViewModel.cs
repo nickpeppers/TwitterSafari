@@ -63,8 +63,10 @@ namespace TwitterSafari.Models
                  select new Tweet
                  {
                      StatusID = tweet.StatusID,
-                     ScreenName = tweet.User.ScreenName,
+                     Name = tweet.User.Name,
                      Text = tweet.Text,
+                     Location = tweet.User.Location,
+                     Followers = tweet.User.FollowersCount,
                      ImageUrl = tweet.User.ProfileImageUrl
                  });
 
