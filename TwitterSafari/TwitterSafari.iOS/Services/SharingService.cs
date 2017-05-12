@@ -1,5 +1,6 @@
 using Foundation;
 using LinqToTwitter;
+using System;
 using TwitterSafari.Models;
 using UIKit;
 
@@ -9,7 +10,8 @@ namespace TwitterSafari.iOS.Services
     {
         public void ShareTweet(Status status)
         {
-            var activityController = new UIActivityViewController(new NSObject[] { UIActivity.FromObject(status.Text) }, null);
+            var textToSend = status.User.Name + Environment.NewLine + status.Text;
+            var activityController = new UIActivityViewController(new NSObject[] { UIActivity.FromObject(textToSend) }, null);
             UIApplication.SharedApplication.KeyWindow.RootViewController.PresentViewController(activityController, true, null);
         }
     }

@@ -1,5 +1,6 @@
 using Android.Content;
 using LinqToTwitter;
+using System;
 using TwitterSafari.Models;
 using Xamarin.Forms;
 
@@ -9,9 +10,10 @@ namespace TwitterSafari.Droid.Services
     {
         public void ShareTweet(Status status)
         {
+            var textToSend = status.User.Name + Environment.NewLine + status.Text;
             var intent = new Intent(Intent.ActionSend);
             intent.SetType("text/plain");
-            intent.PutExtra(Intent.ExtraText, status.Text);
+            intent.PutExtra(Intent.ExtraText, textToSend);
             Forms.Context.StartActivity(Intent.CreateChooser(intent, "Choose an App"));
         }
     }
