@@ -13,6 +13,7 @@
     </Grid.ColumnDefinitions>
     <Grid.RowDefinitions>
       <RowDefinition Height="66"/>
+      <RowDefinition Height="200"/>
       <RowDefinition Height="Auto"/>
     </Grid.RowDefinitions>
 
@@ -21,27 +22,31 @@
     <Image Grid.Column="1" Source="TopBarIcon" Margin="3" HorizontalOptions="Start" VerticalOptions="Center"/>
     <Label Grid.Column="2" Text="{Binding CurrentUser.Name}" FontSize="Large" TextColor="White" HorizontalOptions="Center" VerticalOptions="Center"/>
 
-    <ListView Grid.ColumnSpan="3" Grid.Row="1" ItemsSource="{Binding UserStatus}" RowHeight="150" BackgroundColor="Transparent" SeparatorColor="Transparent">
+    <Image Grid.Row="1" Grid.ColumnSpan="3" Source="{Binding CurrentUser.ProfileBackgroundImageUrl}" Aspect="AspectFill"/>
+    <Grid Grid.Row="1" Margin="10,0,10,10" Grid.ColumnSpan="3" BackgroundColor="White" HorizontalOptions="Start" VerticalOptions="End" HeightRequest="103" WidthRequest="103">
+      <Image Source="{Binding CurrentUser.ProfileImageUrl}" VerticalOptions="Center" HorizontalOptions="Center" WidthRequest="100" HeightRequest="100"/>
+    </Grid>
+
+    <ListView Grid.ColumnSpan="3" Grid.Row="2" ItemsSource="{Binding UserStatus}" RowHeight="150" ItemTapped="OnItemTapped"  BackgroundColor="Transparent" SeparatorColor="Transparent">
+      <ListView.Header>
+        <StackLayout Spacing="0">
+          <local:MultiLabel Margin="3,10,3,0" Value1="Followers: " Value2="{Binding CurrentUser.FollowersCount}" Value3="    Friends: " Value4="{Binding CurrentUser.FriendsCount}" TextColor="White" FontSize="Medium"/>
+          <local:MultiLabel Margin="3,0,3,10" Value1="Location: " Value2="{Binding CurrentUser.Location}" Value3="    Statuses: " Value4="{Binding CurrentUser.StatusesCount}" TextColor="White" FontSize="Medium"/>
+          <BoxView VerticalOptions="End" HeightRequest="1" BackgroundColor="White"/>
+        </StackLayout>
+      </ListView.Header>
       <ListView.ItemTemplate>
         <DataTemplate>
           <ViewCell>
-            <Grid>
-              <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="60"/>
-                <ColumnDefinition/>
-              </Grid.ColumnDefinitions>
+            <Grid RowSpacing="0">
               <Grid.RowDefinitions>
-                <RowDefinition/>
+                <RowDefinition Height="2*"/>
                 <RowDefinition/>
               </Grid.RowDefinitions>
-
-              <Image Source="{Binding User.ProfileImageUrl}" HorizontalOptions="Start" VerticalOptions="Start" HeightRequest="60" WidthRequest="60"/>
-              <Label Grid.Row="1" Text="{Binding User.Name}" HorizontalOptions="Center" Margin="2,0" TextColor="White"/>
-              <StackLayout Spacing="3"  Grid.Column="1" Grid.RowSpan="2" Margin="5,10">
-                <Label Text="{Binding Text}" TextColor="White" FontSize="Medium"/>
-                <local:MultiLabel Value1="Followers: " Value2="{Binding User.Followers}" VerticalOptions="Center" FontSize="Small" TextColor="White"/>
-              </StackLayout>
-              <BoxView Grid.ColumnSpan="2" Grid.Row="1" VerticalOptions="End" HeightRequest="1" BackgroundColor="White"/>
+              
+              <Label Text="{Binding Text}" TextColor="White" FontSize="Medium" Margin="5,10,5,0"/>
+              <local:MultiLabel Grid.Row="1" Margin="5,0" Value1="Retweets: " Value2="{Binding RetweetCount}" Value3="    Created: " Value4="{Binding CreatedAt}" TextColor="White" FontSize="Small"/>
+              <BoxView Grid.Row="1" VerticalOptions="End" HeightRequest="1" BackgroundColor="White"/>
             </Grid>
           </ViewCell>
         </DataTemplate>

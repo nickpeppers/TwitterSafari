@@ -39,7 +39,12 @@ namespace TwitterSafari
             {
                 var searchText = _searchEntry.Text.Trim();
                 if (string.IsNullOrEmpty(searchText))
+                {
+                    _twitterViewModel.Tweets = null;
+                    _backgroundImage.IsVisible = true;
                     return;
+                }
+                   
 
                 await _twitterViewModel.Search(searchText);
                 _backgroundImage.IsVisible = false;
@@ -52,6 +57,12 @@ namespace TwitterSafari
 
         private async void OnItemTapped(object sender, ItemTappedEventArgs e)
         {
+            var listView = sender as ListView;
+            if (listView != null)
+            {
+                listView.SelectedItem = null;
+            }
+
             if (_isRunning)
                 return;
 
@@ -59,7 +70,6 @@ namespace TwitterSafari
 
             try
             {
-                
                 var tweet = e.Item as Tweet;
                 if (tweet != null)
                 {
@@ -70,11 +80,6 @@ namespace TwitterSafari
             }
             finally
             {
-                var listView = sender as ListView;
-                if(listView != null)
-                {
-                    listView.SelectedItem = null;
-                }
                 _isRunning = false;
             }
         }
