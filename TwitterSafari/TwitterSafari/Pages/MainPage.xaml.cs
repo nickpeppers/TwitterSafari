@@ -70,6 +70,11 @@ namespace TwitterSafari
             }
             finally
             {
+                var listView = sender as ListView;
+                if(listView != null)
+                {
+                    listView.SelectedItem = null;
+                }
                 _isRunning = false;
             }
         }
