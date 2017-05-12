@@ -1,6 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using LinqToTwitter;
 
 namespace TwitterSafari.Models
 {
@@ -8,16 +6,8 @@ namespace TwitterSafari.Models
     {
         public ulong StatusID { get; set; }
 
-        public string Name { get; set; }
-
         public string Text { get; set; }
 
-        public string ImageUrl { get; set; }
-
-        public string BackgroundImageUrl { get; set; }
-
-        public string Location { get; set; }
-
-        public int Followers { get; set; }
+        public User User { get; set; }
     }
 }

@@ -10,6 +10,8 @@ namespace TwitterSafari.Models
 {
     public class TwitterViewModel : INotifyPropertyChanged
     {
+        private const int TweetCount = 100;
+
         public event PropertyChangedEventHandler PropertyChanged;
 
         private ObservableCollection<Tweet> _tweets;
@@ -23,6 +25,36 @@ namespace TwitterSafari.Models
                     return;
 
                 _tweets = value;
+                OnPropertyChanged();
+            }
+        }
+
+        private User _currentUser;
+
+        public User CurrentUser
+        {
+            get { return _currentUser; }
+            set
+            {
+                if (_currentUser == value)
+                    return;
+
+                _currentUser = value;
+                OnPropertyChanged();
+            }
+        }
+
+        private ObservableCollection<Status> _userStatus;
+
+        public ObservableCollection<Status> UserStatus
+        {
+            get { return _userStatus; }
+            set
+            {
+                if (_userStatus == value)
+                    return;
+
+                _userStatus = value;
                 OnPropertyChanged();
             }
         }
@@ -55,22 +87,34 @@ namespace TwitterSafari.Models
             Search searchResponse = await
                (from search in _twitterContext.Search
                 where search.Type == SearchType.Search &&
-                      search.Query == searchText
+                      search.Query == searchText &&
+                      search.Count == TweetCount
                 select search)
                .SingleAsync();
 
             var tweets =(from tweet in searchResponse.Statuses select new Tweet
             {
                 StatusID = tweet.StatusID,
-                Name = tweet.User.Name,
+                User = tweet.User,
                 Text = tweet.Text,
-                Location = tweet.User.Location,
-                Followers = tweet.User.FollowersCount,
-                ImageUrl = tweet.User.ProfileImageUrl,
-                BackgroundImageUrl = tweet.User.ProfileBackgroundImageUrl
             });
             
             Tweets = new ObservableCollection<Tweet>(tweets);
+        }
+
+        public async Task SearchUserTweets()
+        {
+            if (CurrentUser == null)
+                throw new Exception("Oops, your CurrentUser is null");
+
+            var userStatus = await
+               (from tweet in _twitterContext.Status
+                where tweet.Type == StatusType.User &&
+                      tweet.ScreenName == CurrentUser.ScreenNameResponse &&
+                      tweet.Count == TweetCount
+                select tweet).ToListAsync();
+
+            UserStatus = new ObservableCollection<Status>(userStatus);
         }
 
         protected void OnPropertyChanged([CallerMemberName] string propertyName = null)
