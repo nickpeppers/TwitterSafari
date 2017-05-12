@@ -20,7 +20,6 @@
     </Compile>
     <Compile Include="$(MSBuildThisFileDirectory)Models\ServiceContainer.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Models\TwitterViewModel.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Models\Tweet.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Pages\UserStatusPage.xaml.cs">
       <DependentUpon>UserStatusPage.xaml</DependentUpon>
       <SubType>Code</SubType>

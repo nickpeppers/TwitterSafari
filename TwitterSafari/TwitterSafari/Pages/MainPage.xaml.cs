@@ -64,11 +64,11 @@ namespace TwitterSafari
 
             try
             {
-                var tweet = e.Item as Tweet;
+                var tweet = e.Item as LinqToTwitter.Status;
                 if (tweet != null)
                 {
                     _twitterViewModel.CurrentUser = tweet.User;
-                    await _twitterViewModel.SearchUserTweets();
+                    await _twitterViewModel.GetUserTweets();
                     await Navigation.PushAsync(new UserStatusPage());
                 }
             }

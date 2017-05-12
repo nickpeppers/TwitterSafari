@@ -14,9 +14,9 @@ namespace TwitterSafari.Models
 
         public event PropertyChangedEventHandler PropertyChanged;
 
-        private ObservableCollection<Tweet> _tweets;
+        private ObservableCollection<Status> _tweets;
 
-        public ObservableCollection<Tweet> Tweets
+        public ObservableCollection<Status> Tweets
         {
             get { return _tweets; }
             set
@@ -92,17 +92,10 @@ namespace TwitterSafari.Models
                 select search)
                .SingleAsync();
 
-            var tweets =(from tweet in searchResponse.Statuses select new Tweet
-            {
-                StatusID = tweet.StatusID,
-                User = tweet.User,
-                Text = tweet.Text,
-            });
-            
-            Tweets = new ObservableCollection<Tweet>(tweets);
+            Tweets = new ObservableCollection<Status>(searchResponse.Statuses);
         }
 
-        public async Task SearchUserTweets()
+        public async Task GetUserTweets()
         {
             if (CurrentUser == null)
                 throw new Exception("Oops, your CurrentUser is null");
