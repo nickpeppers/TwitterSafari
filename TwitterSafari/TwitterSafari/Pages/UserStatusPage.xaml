@@ -27,7 +27,7 @@
       <Image Source="{Binding CurrentUser.ProfileImageUrl}" VerticalOptions="Center" HorizontalOptions="Center" WidthRequest="100" HeightRequest="100"/>
     </Grid>
 
-    <ListView Grid.ColumnSpan="3" Grid.Row="2" ItemsSource="{Binding UserStatus}" RowHeight="150" ItemTapped="OnItemTapped"  BackgroundColor="Transparent" SeparatorColor="Transparent">
+    <ListView CachingStrategy="RecycleElement" Grid.ColumnSpan="3" Grid.Row="2" ItemsSource="{Binding UserStatus}" RowHeight="150" ItemTapped="OnItemTapped"  BackgroundColor="Transparent" SeparatorColor="Transparent">
       <ListView.Header>
         <StackLayout Spacing="0">
           <local:MultiLabel Margin="3,10,3,0" Value1="Followers: " Value2="{Binding CurrentUser.FollowersCount}" Value3="    Friends: " Value4="{Binding CurrentUser.FriendsCount}" TextColor="White" FontSize="Medium"/>
@@ -43,8 +43,8 @@
                 <RowDefinition Height="2*"/>
                 <RowDefinition/>
               </Grid.RowDefinitions>
-              
-              <Label Text="{Binding Text}" TextColor="White" FontSize="Medium" Margin="5,10,5,0"/>
+
+              <local:HtmlLabel Text="{Binding Text}" TextColor="White" FontSize="Medium" Margin="5,10,5,0"/>
               <local:MultiLabel Grid.Row="1" Margin="5,0" Value1="Retweets: " Value2="{Binding RetweetCount}" Value3="    Created: " Value4="{Binding CreatedAt}" TextColor="White" FontSize="Small"/>
               <BoxView Grid.Row="1" VerticalOptions="End" HeightRequest="1" BackgroundColor="White"/>
             </Grid>
