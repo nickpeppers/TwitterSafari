@@ -7,6 +7,7 @@ namespace TwitterSafari
     public partial class UserStatusPage : ContentPage
     {
         private static readonly TwitterViewModel _twitterViewModel = ServiceContainer.Resolve<TwitterViewModel>();
+        private static readonly ISharingService _sharingService = ServiceContainer.Resolve<ISharingService>();
         private bool _isRunning = false;
 
         public UserStatusPage()
@@ -51,7 +52,11 @@ namespace TwitterSafari
 
         private void OnItemTapped(object sender, ItemTappedEventArgs e)
         {
-            //TODO: should do something here
+            var tweet = e.Item as LinqToTwitter.Status;
+            if (tweet != null)
+            {
+                _sharingService.ShareTweet(tweet);
+            }
         }
     }
 }

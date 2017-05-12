@@ -5,6 +5,7 @@ using System.Linq;
 using Foundation;
 using UIKit;
 using TwitterSafari.Models;
+using TwitterSafari.iOS.Services;
 
 namespace TwitterSafari.iOS
 {
@@ -14,6 +15,7 @@ namespace TwitterSafari.iOS
         public override bool FinishedLaunching(UIApplication app, NSDictionary options)
         {
             ServiceContainer.Register<TwitterViewModel>(() => new TwitterViewModel());
+            ServiceContainer.Register<ISharingService>(() => new SharingService());
 
             Xamarin.Forms.Forms.Init();
             LoadApplication(new TwitterSafari.App());

@@ -15,6 +15,7 @@
     <Compile Include="$(MSBuildThisFileDirectory)Controls\HtmlLabel.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Controls\KerningLabel.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Controls\MultiLabel.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Models\ISharingService.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Pages\MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>

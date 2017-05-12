@@ -1,6 +1,7 @@
 ﻿using Android.App;
 using Android.Content.PM;
 using Android.OS;
+using TwitterSafari.Droid.Services;
 using TwitterSafari.Models;
 using Xamarin.Forms.Platform.Android;
 
@@ -14,6 +15,7 @@ namespace TwitterSafari.Droid
             base.OnCreate(bundle);
 
             ServiceContainer.Register<TwitterViewModel>(() => new TwitterViewModel());
+            ServiceContainer.Register<ISharingService>(() => new SharingService());
 
             Xamarin.Forms.Forms.Init(this, bundle);
             LoadApplication(new TwitterSafari.App());
