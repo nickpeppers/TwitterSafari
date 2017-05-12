@@ -44,7 +44,6 @@ namespace TwitterSafari
                     _backgroundImage.IsVisible = true;
                     return;
                 }
-                   
 
                 await _twitterViewModel.Search(searchText);
                 if(_twitterViewModel.Tweets != null && _twitterViewModel.Tweets.Count > 0)
