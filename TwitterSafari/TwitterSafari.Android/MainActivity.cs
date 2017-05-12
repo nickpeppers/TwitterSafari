@@ -1,17 +1,13 @@
-﻿using System;
-
-using Android.App;
+﻿using Android.App;
 using Android.Content.PM;
-using Android.Runtime;
-using Android.Views;
-using Android.Widget;
 using Android.OS;
 using TwitterSafari.Models;
+using Xamarin.Forms.Platform.Android;
 
 namespace TwitterSafari.Droid
 {
     [Activity(Label = "TwitterSafari", Icon = "@drawable/icon", Theme = "@style/MainTheme", ConfigurationChanges = ConfigChanges.ScreenSize | ConfigChanges.Orientation)]
-    public class MainActivity : Xamarin.Forms.Platform.Android.FormsAppCompatActivity
+    public class MainActivity : FormsAppCompatActivity
     {
         protected override void OnCreate(Bundle bundle)
         {
@@ -24,4 +20,3 @@ namespace TwitterSafari.Droid
         }
     }
 }
-
