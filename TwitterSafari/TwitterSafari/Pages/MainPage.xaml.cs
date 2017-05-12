@@ -7,7 +7,7 @@ namespace TwitterSafari
     public partial class MainPage : ContentPage
     {
         private static readonly TwitterViewModel _twitterViewModel = ServiceContainer.Resolve<TwitterViewModel>();
-        private bool _isSearching = false;
+        private bool _isRunning = false;
 
         public MainPage()
         {
@@ -30,10 +30,10 @@ namespace TwitterSafari
 
         private async void OnSearchClicked(object sender, EventArgs e)
         {
-            if (_isSearching)
+            if (_isRunning)
                 return;
 
-            _isSearching = true;
+            _isRunning = true;
 
             try
             {
@@ -46,7 +46,31 @@ namespace TwitterSafari
             }
             finally
             {
-                _isSearching = false;
+                _isRunning = false;
+            }
+        }
+
+        private async void OnItemTapped(object sender, ItemTappedEventArgs e)
+        {
+            if (_isRunning)
+                return;
+
+            _isRunning = true;
+
+            try
+            {
+                
+                var tweet = e.Item as Tweet;
+                if (tweet != null)
+                {
+                    _twitterViewModel.CurrentUser = tweet.User;
+                    await _twitterViewModel.SearchUserTweets();
+                    await Navigation.PushAsync(new UserStatusPage());
+                }
+            }
+            finally
+            {
+                _isRunning = false;
             }
         }
     }

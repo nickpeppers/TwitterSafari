@@ -4,6 +4,7 @@
   xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
   xmlns:local="clr-namespace:TwitterSafari"
   x:Class="TwitterSafari.MainPage"
+  NavigationPage.HasNavigationBar="False"
   BackgroundColor="Black">
 
   <Grid ColumnSpacing="0" RowSpacing="0" BackgroundColor="Black">
@@ -21,12 +22,12 @@
     <local:KerningLabel Grid.ColumnSpan="2" Text="TWITTER SAFARI" FontSize="Large" Kerning="3" TextColor="White" HorizontalOptions="Center" VerticalOptions="Center"/>
     <Image Grid.ColumnSpan="2" Source="TopBarIcon" Margin="3" HorizontalOptions="Start" VerticalOptions="Center"/>
 
-    <Entry x:Name="_searchEntry" Grid.Row="1" Margin="3,0" Placeholder="Search" PlaceholderColor="White" TextColor="White"/>
-    <Button  Grid.Row="1" Grid.Column="1" Text="GO" Clicked="OnSearchClicked"/>
+    <Entry x:Name="_searchEntry" Grid.Row="1" Margin="3,0" Placeholder="Search" PlaceholderColor="White" TextColor="White" Completed="OnSearchClicked"/>
+    <Button  Grid.Row="1" Grid.Column="1" Text="GO" Clicked="OnSearchClicked" BackgroundColor="White"/>
 
     <Image x:Name="_backgroundImage" Grid.ColumnSpan="2" Grid.Row="2" Source="Compass" HorizontalOptions="Center" VerticalOptions="Center"/>
 
-    <ListView Grid.ColumnSpan="2" Grid.Row="2" ItemsSource="{Binding Tweets}" RowHeight="150" BackgroundColor="Transparent" SeparatorColor="Transparent">
+    <ListView Grid.ColumnSpan="2" Grid.Row="2" ItemsSource="{Binding Tweets}" RowHeight="150" ItemTapped="OnItemTapped" BackgroundColor="Transparent" SeparatorColor="Transparent">
       <ListView.ItemTemplate>
         <DataTemplate>
           <ViewCell>
@@ -40,10 +41,12 @@
                 <RowDefinition/>
               </Grid.RowDefinitions>
 
-              <Image Source="{Binding ImageUrl}" HorizontalOptions="Start" VerticalOptions="Start" HeightRequest="60" WidthRequest="60"/>
-              <Label Grid.Row="1" Text="{Binding Name}" HorizontalOptions="Center" TextColor="White"/>
-              <Label Grid.Column="1" Grid.RowSpan="2" Text="{Binding Text}" Margin="5,10" TextColor="White" FontSize="Medium"/>
-              <local:MultiLabel  Grid.Column="1" Grid.Row="1" Value1="Followers: " Value2="{Binding Followers}" VerticalOptions="Center" FontSize="Small" TextColor="White"/>
+              <Image Source="{Binding User.ProfileImageUrl}" HorizontalOptions="Start" VerticalOptions="Start" HeightRequest="60" WidthRequest="60"/>
+              <Label Grid.Row="1" Text="{Binding User.Name}" HorizontalOptions="Center" Margin="2,0" TextColor="White"/>
+              <StackLayout Spacing="3"  Grid.Column="1" Grid.RowSpan="2" Margin="5,10">
+                <Label Text="{Binding Text}" TextColor="White" FontSize="Medium"/>
+                <local:MultiLabel Value1="Followers: " Value2="{Binding User.FollowersCount}" VerticalOptions="Center" FontSize="Small" TextColor="White"/>
+              </StackLayout>
               <BoxView Grid.ColumnSpan="2" Grid.Row="1" VerticalOptions="End" HeightRequest="1" BackgroundColor="White"/>
             </Grid>
           </ViewCell>
