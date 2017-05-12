@@ -51,11 +51,7 @@ namespace TwitterSafari
 
         private void OnItemTapped(object sender, ItemTappedEventArgs e)
         {
-            var listView = sender as ListView;
-            if (listView != null)
-            {
-                listView.SelectedItem = null;
-            }
+            //TODO: should do something here
         }
     }
 }

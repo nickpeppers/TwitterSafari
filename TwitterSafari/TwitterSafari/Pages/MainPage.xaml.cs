@@ -57,12 +57,6 @@ namespace TwitterSafari
 
         private async void OnItemTapped(object sender, ItemTappedEventArgs e)
         {
-            var listView = sender as ListView;
-            if (listView != null)
-            {
-                listView.SelectedItem = null;
-            }
-
             if (_isRunning)
                 return;
 
