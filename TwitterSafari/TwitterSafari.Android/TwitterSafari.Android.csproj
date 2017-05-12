@@ -244,6 +244,31 @@
       <Link>Resources\drawable-xxxhdpi\Compass.png</Link>
     </AndroidResource>
   </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="..\..\Assets\Android\drawable\BackArrow.png">
+      <Link>Resources\drawable\BackArrow.png</Link>
+    </AndroidResource>
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="..\..\Assets\Android\drawable-hdpi\BackArrow.png">
+      <Link>Resources\drawable-hdpi\BackArrow.png</Link>
+    </AndroidResource>
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="..\..\Assets\Android\drawable-xhdpi\BackArrow.png">
+      <Link>Resources\drawable-xhdpi\BackArrow.png</Link>
+    </AndroidResource>
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="..\..\Assets\Android\drawable-xxhdpi\BackArrow.png">
+      <Link>Resources\drawable-xxhdpi\BackArrow.png</Link>
+    </AndroidResource>
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="..\..\Assets\Android\drawable-xxxhdpi\BackArrow.png">
+      <Link>Resources\drawable-xxxhdpi\BackArrow.png</Link>
+    </AndroidResource>
+  </ItemGroup>
   <Import Project="..\TwitterSafari\TwitterSafari.projitems" Label="Shared" Condition="Exists('..\TwitterSafari\TwitterSafari.projitems')" />
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
   <Import Project="..\..\packages\Xamarin.Android.Support.Vector.Drawable.23.3.0\build\Xamarin.Android.Support.Vector.Drawable.targets" Condition="Exists('..\..\packages\Xamarin.Android.Support.Vector.Drawable.23.3.0\build\Xamarin.Android.Support.Vector.Drawable.targets')" />
