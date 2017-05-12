@@ -1,5 +1,3 @@
-using Android.Widget;
-using System.ComponentModel;
 using TwitterSafari;
 using TwitterSafari.Droid;
 using Xamarin.Forms;
