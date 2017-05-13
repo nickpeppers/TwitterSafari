@@ -50,9 +50,9 @@ namespace TwitterSafari
             }
         }
 
-        private void OnItemTapped(object sender, ItemTappedEventArgs e)
+        private void OnItemSelected(object sender, SelectedItemChangedEventArgs e)
         {
-            var tweet = e.Item as LinqToTwitter.Status;
+            var tweet = e.SelectedItem as LinqToTwitter.Status;
             if (tweet != null)
             {
                 _sharingService.ShareTweet(tweet);

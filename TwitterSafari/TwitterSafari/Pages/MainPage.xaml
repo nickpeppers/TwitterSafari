@@ -27,7 +27,7 @@
 
     <Image x:Name="_backgroundImage" Grid.ColumnSpan="2" Grid.Row="2" Source="Compass" HorizontalOptions="Center" VerticalOptions="Center"/>
 
-    <ListView CachingStrategy="RecycleElement" Grid.ColumnSpan="2" Grid.Row="2" ItemsSource="{Binding Tweets}" RowHeight="150" ItemTapped="OnItemTapped" BackgroundColor="Transparent" SeparatorColor="Transparent">
+    <ListView CachingStrategy="RecycleElement" Grid.ColumnSpan="2" Grid.Row="2" ItemsSource="{Binding Tweets}" RowHeight="150" ItemSelected="OnItemSelected" BackgroundColor="Transparent" SeparatorColor="Transparent">
       <ListView.ItemTemplate>
         <DataTemplate>
           <ViewCell>

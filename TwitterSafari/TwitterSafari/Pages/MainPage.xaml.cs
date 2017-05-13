@@ -61,7 +61,7 @@ namespace TwitterSafari
             }
         }
 
-        private async void OnItemTapped(object sender, ItemTappedEventArgs e)
+        private async void OnItemSelected(object sender, SelectedItemChangedEventArgs e)
         {
             if (_isRunning)
                 return;
@@ -70,7 +70,7 @@ namespace TwitterSafari
 
             try
             {
-                var tweet = e.Item as LinqToTwitter.Status;
+                var tweet = e.SelectedItem as LinqToTwitter.Status;
                 if (tweet != null)
                 {
                     _twitterViewModel.CurrentUser = tweet.User;

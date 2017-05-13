@@ -27,7 +27,7 @@
       <Image Source="{Binding CurrentUser.ProfileImageUrl}" VerticalOptions="Center" HorizontalOptions="Center" WidthRequest="100" HeightRequest="100"/>
     </Grid>
 
-    <ListView CachingStrategy="RecycleElement" Grid.ColumnSpan="3" Grid.Row="2" ItemsSource="{Binding UserStatus}" RowHeight="150" ItemTapped="OnItemTapped"  BackgroundColor="Transparent" SeparatorColor="Transparent">
+    <ListView CachingStrategy="RecycleElement" Grid.ColumnSpan="3" Grid.Row="2" ItemsSource="{Binding UserStatus}" RowHeight="150" ItemSelected="OnItemSelected"  BackgroundColor="Transparent" SeparatorColor="Transparent">
       <ListView.Header>
         <StackLayout Spacing="0">
           <local:MultiLabel Margin="3,10,3,0" Value1="Followers: " Value2="{Binding CurrentUser.FollowersCount}" Value3="    Friends: " Value4="{Binding CurrentUser.FriendsCount}" TextColor="White" FontSize="Medium"/>
