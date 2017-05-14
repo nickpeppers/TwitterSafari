@@ -40,7 +40,8 @@ namespace TwitterSafari
                 var searchText = _searchEntry.Text.Trim();
                 if (string.IsNullOrEmpty(searchText))
                 {
-                    _twitterViewModel.Tweets = null;
+                    _listView.SelectedItem =
+                        _twitterViewModel.Tweets = null;
                     _backgroundImage.IsVisible = true;
                     return;
                 }
@@ -52,6 +53,7 @@ namespace TwitterSafari
                 }
                 else
                 {
+                    _listView.SelectedItem = null;
                     _backgroundImage.IsVisible = true;
                 }
             }

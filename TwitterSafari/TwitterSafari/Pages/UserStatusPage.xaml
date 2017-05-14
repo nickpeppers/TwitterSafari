@@ -44,7 +44,7 @@
                 <RowDefinition/>
               </Grid.RowDefinitions>
 
-              <local:HtmlLabel Text="{Binding Text}" TextColor="White" FontSize="Medium" Margin="5,10,5,0"/>
+              <Label Text="{Binding Text}" TextColor="White" FontSize="Medium" Margin="5,10,5,0"/>
               <local:MultiLabel Grid.Row="1" Margin="5,0" Value1="Retweets: " Value2="{Binding RetweetCount}" Value3="    Created: " Value4="{Binding CreatedAt}" TextColor="White" FontSize="Small"/>
               <BoxView Grid.Row="1" VerticalOptions="End" HeightRequest="1" BackgroundColor="White"/>
             </Grid>

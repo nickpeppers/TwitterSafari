@@ -52,10 +52,22 @@ namespace TwitterSafari
 
         private void OnItemSelected(object sender, SelectedItemChangedEventArgs e)
         {
-            var tweet = e.SelectedItem as LinqToTwitter.Status;
-            if (tweet != null)
+            if (_isRunning)
+                return;
+
+            _isRunning = true;
+
+            try
             {
-                _sharingService.ShareTweet(tweet);
+                var tweet = e.SelectedItem as LinqToTwitter.Status;
+                if (tweet != null)
+                {
+                    _sharingService.ShareTweet(tweet);
+                }
+            }
+            finally
+            {
+                _isRunning = false;
             }
         }
     }

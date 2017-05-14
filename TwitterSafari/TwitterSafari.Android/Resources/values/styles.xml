@@ -19,6 +19,6 @@
     <item name="colorAccent">#969696</item>
   </style>
   <style name="ListView" parent="android:Widget.ListView">
-    <item name="android:listSelector">@android:color/transparent</item>
+    <item name="android:listSelector">#969696</item>
   </style>
 </resources>
