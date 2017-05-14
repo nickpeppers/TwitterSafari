@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace TwitterSafari.Droid
 {
-    [Activity(MainLauncher = true, NoHistory = true, Label = "Twitter Safari", Icon = "@drawable/icon", Theme = "@style/MainTheme", ConfigurationChanges = ConfigChanges.ScreenSize | ConfigChanges.Orientation)]
+    [Activity(MainLauncher = true, NoHistory = true, Icon = "@drawable/icon", Theme = "@style/MainTheme", ConfigurationChanges = ConfigChanges.ScreenSize | ConfigChanges.Orientation)]
     public class SplashActivity : Activity
     {
         protected override void OnCreate(Bundle savedInstanceState)
