@@ -1,2 +1,5 @@
 # TwitterSafari
-Linq2Twitter Developer Demo
+Developer Demo
+Twitter Safari is a simple Xamarin.Forms app that uses LinqToTwitter to search Twitter statuses. It pulls in the latest 100 statuses based on your search text, which if selected will navigate to a new screen of that Twitter users profile. The Twitter user profile displays their user information and their last 100 statuses that you can click on to share.
+![Alt text](/Assts/Screenshots/SafariSplashscreen.png?raw=true "Twitter Safari Splashscreen")![Alt text](/Assts/Screenshots/SafariFeed.png?raw=true "Twitter Safari Feed")![Alt text](/Assts/Screenshots/SafariUserProfile.png?raw=true "Twitter Safari User Profile")
+![Alt text](/Assts/Screenshots/TwitterSplashscreen.png?raw=true "Twitter Splashscreen")![Alt text](/Assts/Screenshots/TwitterFeed.png?raw=true "Twitter Feed")![Alt text](/Assts/Screenshots/TwitterUserProfile.png?raw=true "Twitter User Profile")
