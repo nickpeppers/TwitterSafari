@@ -8,7 +8,7 @@ This is the MainPage containing an EditText to enter search parameters. Upon sea
 
 ![Alt text](/Assets/Screenshots/SafariFeed.png?raw=true "Twitter Safari Feed")
 
-This is the UserStatusPage that displays their user profile information including profile background image, user image, user location, number of followers, number of friends, number of statuses, and populates the ListView with their last 100 statuses. 
+This is the UserStatusPage that displays their user profile information including profile background image, user image, user location, number of followers, number of friends, number of statuses, and populates the ListView with their last 100 statuses. If you click any user status in the ListView it will allow you to share that tweet by your chosen media. 
 
 ![Alt text](/Assets/Screenshots/SafariUserProfile.png?raw=true "Twitter Safari User Profile")
 
