@@ -5,6 +5,7 @@ using System.ComponentModel;
 using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Threading.Tasks;
+using System.Diagnostics;
 
 namespace TwitterSafari.Models
 {
@@ -84,7 +85,9 @@ namespace TwitterSafari.Models
 
         public async Task Search(string searchText)
         {
-            Search searchResponse = await
+            try
+            {
+                Search searchResponse = await
                (from search in _twitterContext.Search
                 where search.Type == SearchType.Search &&
                       search.Query == searchText &&
@@ -92,22 +95,34 @@ namespace TwitterSafari.Models
                 select search)
                .SingleAsync();
 
-            Tweets = new ObservableCollection<Status>(searchResponse.Statuses);
+                Tweets = new ObservableCollection<Status>(searchResponse.Statuses);
+            }
+            catch (Exception exc)
+            {
+                Debug.WriteLine("Error: " + exc);
+            }
         }
 
         public async Task GetUserTweets()
         {
-            if (CurrentUser == null)
-                throw new Exception("Oops, your CurrentUser is null");
+            try
+            {
+                if (CurrentUser == null)
+                    throw new Exception("Oops, your CurrentUser is null");
 
-            var userStatus = await
-               (from tweet in _twitterContext.Status
-                where tweet.Type == StatusType.User &&
-                      tweet.ScreenName == CurrentUser.ScreenNameResponse &&
-                      tweet.Count == TweetCount
-                select tweet).ToListAsync();
+                var userStatus = await
+                   (from tweet in _twitterContext.Status
+                    where tweet.Type == StatusType.User &&
+                          tweet.ScreenName == CurrentUser.ScreenNameResponse &&
+                          tweet.Count == TweetCount
+                    select tweet).ToListAsync();
 
-            UserStatus = new ObservableCollection<Status>(userStatus);
+                UserStatus = new ObservableCollection<Status>(userStatus);
+            }
+            catch (Exception exc)
+            {
+                Debug.WriteLine("Error: " + exc);
+            }
         }
 
         protected void OnPropertyChanged([CallerMemberName] string propertyName = null)
