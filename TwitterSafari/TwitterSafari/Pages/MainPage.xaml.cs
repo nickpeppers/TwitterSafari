@@ -1,13 +1,15 @@
 ﻿using System;
+using System.Threading.Tasks;
 using TwitterSafari.Models;
+using TwitterSafari.Pages;
 using Xamarin.Forms;
 
 namespace TwitterSafari
 {
     public partial class MainPage : ContentPage
     {
-        private static readonly TwitterViewModel _twitterViewModel = ServiceContainer.Resolve<TwitterViewModel>();
-        private bool _isRunning = false;
+        static readonly TwitterViewModel _twitterViewModel = ServiceContainer.Resolve<TwitterViewModel>();
+        bool _isRunning = false;
 
         public MainPage()
         {
@@ -18,7 +20,7 @@ namespace TwitterSafari
         {
             base.OnParentSet();
 
-            if(Parent == null)
+            if (Parent == null)
             {
                 BindingContext = null;
             }
@@ -28,7 +30,7 @@ namespace TwitterSafari
             }
         }
 
-        private async void OnSearchClicked(object sender, EventArgs e)
+        async void OnSearchClicked(object sender, EventArgs e)
         {
             if (_isRunning)
                 return;
@@ -46,8 +48,12 @@ namespace TwitterSafari
                     return;
                 }
 
-                await _twitterViewModel.Search(searchText);
-                if(_twitterViewModel.Tweets != null && _twitterViewModel.Tweets.Count > 0)
+                await Task.Run(async () =>
+                {
+                    await _twitterViewModel.Search(searchText);
+                });
+
+                if (_twitterViewModel.Tweets != null && _twitterViewModel.Tweets.Count > 0)
                 {
                     _backgroundImage.IsVisible = false;
                 }
@@ -63,7 +69,7 @@ namespace TwitterSafari
             }
         }
 
-        private async void OnItemSelected(object sender, SelectedItemChangedEventArgs e)
+        async void OnItemTapped(object sender, ItemTappedEventArgs e)
         {
             if (_isRunning)
                 return;
@@ -72,13 +78,34 @@ namespace TwitterSafari
 
             try
             {
-                var tweet = e.SelectedItem as LinqToTwitter.Status;
+                var tweet = e.Item as LinqToTwitter.Status;
+                _listView.SelectedItem = null;
                 if (tweet != null)
                 {
                     _twitterViewModel.CurrentUser = tweet.User;
-                    await _twitterViewModel.GetUserTweets();
+                    await Task.Run(async () =>
+                    {
+                        await _twitterViewModel.GetUserTweets();
+                    });
                     await Navigation.PushAsync(new UserStatusPage());
                 }
+            }
+            finally
+            {
+                _isRunning = false;
+            }
+        }
+
+        async void OnSettingsClicked(object sender, EventArgs e)
+        {
+            if (_isRunning)
+                return;
+
+            _isRunning = true;
+
+            try
+            {
+                await Navigation.PushModalAsync(new SettingsPage());
             }
             finally
             {

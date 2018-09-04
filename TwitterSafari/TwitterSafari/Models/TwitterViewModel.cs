@@ -11,7 +11,7 @@ namespace TwitterSafari.Models
 {
     public class TwitterViewModel : INotifyPropertyChanged
     {
-        const int TweetCount = 100;
+        static readonly ISettings _settings = ServiceContainer.Resolve<ISettings>();
 
         public event PropertyChangedEventHandler PropertyChanged;
 
@@ -26,7 +26,7 @@ namespace TwitterSafari.Models
                     return;
 
                 _tweets = value;
-                OnPropertyChanged();
+                OnPropertyChanged(nameof(Tweets));
             }
         }
 
@@ -41,7 +41,7 @@ namespace TwitterSafari.Models
                     return;
 
                 _currentUser = value;
-                OnPropertyChanged();
+                OnPropertyChanged(nameof(CurrentUser));
             }
         }
 
@@ -56,7 +56,7 @@ namespace TwitterSafari.Models
                     return;
 
                 _userStatus = value;
-                OnPropertyChanged();
+                OnPropertyChanged(nameof(UserStatus));
             }
         }
 
@@ -91,7 +91,7 @@ namespace TwitterSafari.Models
                (from search in _twitterContext.Search
                 where search.Type == SearchType.Search &&
                       search.Query == searchText &&
-                      search.Count == TweetCount
+                      search.Count == _settings.TweetCount
                 select search)
                .SingleAsync();
 
@@ -114,7 +114,7 @@ namespace TwitterSafari.Models
                    (from tweet in _twitterContext.Status
                     where tweet.Type == StatusType.User &&
                           tweet.ScreenName == CurrentUser.ScreenNameResponse &&
-                          tweet.Count == TweetCount
+                          tweet.Count == _settings.TweetCount
                     select tweet).ToListAsync();
 
                 UserStatus = new ObservableCollection<Status>(userStatus);

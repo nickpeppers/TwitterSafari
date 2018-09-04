@@ -10,15 +10,17 @@ namespace TwitterSafari.Droid
     [Activity(Icon = "@drawable/icon", Theme = "@style/MainTheme", ConfigurationChanges = ConfigChanges.ScreenSize | ConfigChanges.Orientation)]
     public class MainActivity : FormsAppCompatActivity
     {
-        protected override void OnCreate(Bundle bundle)
+        protected override void OnCreate(Bundle savedInstanceState)
         {
-            base.OnCreate(bundle);
+            base.OnCreate(savedInstanceState);
 
-            ServiceContainer.Register<TwitterViewModel>(() => new TwitterViewModel());
-            ServiceContainer.Register<ISharingService>(() => new SharingService());
+            ServiceContainer.Register<ISharingService>(() => new SharingService(this));
+            ServiceContainer.Register<ISettings>(() => new AndroidSettings(this));
+            ServiceContainer.Register(() => new TwitterViewModel());
+            ServiceContainer.Register(() => new SettingsPageViewModel());
 
-            Xamarin.Forms.Forms.Init(this, bundle);
-            LoadApplication(new TwitterSafari.App());
+            Xamarin.Forms.Forms.Init(this, savedInstanceState);
+            LoadApplication(new App());
         }
     }
 }

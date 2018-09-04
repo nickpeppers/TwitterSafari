@@ -6,9 +6,9 @@ namespace TwitterSafari
 {
     public partial class UserStatusPage : ContentPage
     {
-        private static readonly TwitterViewModel _twitterViewModel = ServiceContainer.Resolve<TwitterViewModel>();
-        private static readonly ISharingService _sharingService = ServiceContainer.Resolve<ISharingService>();
-        private bool _isRunning = false;
+        static readonly TwitterViewModel _twitterViewModel = ServiceContainer.Resolve<TwitterViewModel>();
+        static readonly ISharingService _sharingService = ServiceContainer.Resolve<ISharingService>();
+        bool _isRunning = false;
 
         public UserStatusPage()
         {
@@ -33,7 +33,7 @@ namespace TwitterSafari
             }
         }
 
-        private async void BackTapped(object sender, EventArgs e)
+        async void BackTapped(object sender, EventArgs e)
         {
             if (_isRunning)
                 return;
@@ -50,7 +50,7 @@ namespace TwitterSafari
             }
         }
 
-        private void OnItemSelected(object sender, SelectedItemChangedEventArgs e)
+        void OnItemSelected(object sender, SelectedItemChangedEventArgs e)
         {
             if (_isRunning)
                 return;

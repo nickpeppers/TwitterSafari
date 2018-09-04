@@ -1,26 +1,24 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-
-using Foundation;
-using UIKit;
-using TwitterSafari.Models;
+﻿using Foundation;
 using TwitterSafari.iOS.Services;
+using TwitterSafari.Models;
+using UIKit;
 
 namespace TwitterSafari.iOS
 {
     [Register("AppDelegate")]
     public partial class AppDelegate :Xamarin.Forms.Platform.iOS.FormsApplicationDelegate
     {
-        public override bool FinishedLaunching(UIApplication app, NSDictionary options)
+        public override bool FinishedLaunching(UIApplication uiApplication, NSDictionary launchOptions)
         {
-            ServiceContainer.Register<TwitterViewModel>(() => new TwitterViewModel());
             ServiceContainer.Register<ISharingService>(() => new SharingService());
+            ServiceContainer.Register<ISettings>(() => new iOSSettings());
+            ServiceContainer.Register(() => new TwitterViewModel());
+            ServiceContainer.Register(() => new SettingsPageViewModel());
 
             Xamarin.Forms.Forms.Init();
-            LoadApplication(new TwitterSafari.App());
+            LoadApplication(new App());
 
-            return base.FinishedLaunching(app, options);
+            return base.FinishedLaunching(uiApplication, launchOptions);
         }
     }
 }

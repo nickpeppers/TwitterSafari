@@ -77,6 +77,7 @@
     <ITunesArtwork Include="iTunesArtwork@2x" />
     <None Include="packages.config" />
     <Compile Include="Renderers\EntryRenderer.cs" />
+    <Compile Include="Services\iOSSettings.cs" />
   </ItemGroup>
   <ItemGroup>
     <BundleResource Include="Resources\Default-568h%402x.png" />
@@ -85,6 +86,15 @@
     <BundleResource Include="Resources\Default.png" />
     <BundleResource Include="Resources\Default%402x.png" />
     <InterfaceDefinition Include="Resources\LaunchScreen.storyboard" />
+    <BundleResource Include="..\..\Assets\iOS\Settings.png">
+      <Link>Resources\Settings.png</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\Assets\iOS\Settings%402x.png">
+      <Link>Resources\Settings%402x.png</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\Assets\iOS\Settings%403x.png">
+      <Link>Resources\Settings%403x.png</Link>
+    </BundleResource>
   </ItemGroup>
   <ItemGroup>
     <Reference Include="LinqToTwitter.xamarin, Version=4.0.0.0, Culture=neutral, processorArchitecture=MSIL">
