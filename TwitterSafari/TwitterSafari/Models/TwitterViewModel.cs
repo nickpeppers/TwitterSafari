@@ -11,11 +11,11 @@ namespace TwitterSafari.Models
 {
     public class TwitterViewModel : INotifyPropertyChanged
     {
-        private const int TweetCount = 100;
+        const int TweetCount = 100;
 
         public event PropertyChangedEventHandler PropertyChanged;
 
-        private ObservableCollection<Status> _tweets;
+        ObservableCollection<Status> _tweets;
 
         public ObservableCollection<Status> Tweets
         {
@@ -30,7 +30,7 @@ namespace TwitterSafari.Models
             }
         }
 
-        private User _currentUser;
+        User _currentUser;
 
         public User CurrentUser
         {
@@ -45,7 +45,7 @@ namespace TwitterSafari.Models
             }
         }
 
-        private ObservableCollection<Status> _userStatus;
+        ObservableCollection<Status> _userStatus;
 
         public ObservableCollection<Status> UserStatus
         {
@@ -60,8 +60,8 @@ namespace TwitterSafari.Models
             }
         }
 
-        private ApplicationOnlyAuthorizer _auth;
-        private TwitterContext _twitterContext;
+        ApplicationOnlyAuthorizer _auth;
+        TwitterContext _twitterContext;
 
         public TwitterViewModel()
         {
@@ -127,12 +127,7 @@ namespace TwitterSafari.Models
 
         protected void OnPropertyChanged([CallerMemberName] string propertyName = null)
         {
-            if (propertyName == null)
-                throw new ArgumentNullException("Can't call OnPropertyChanged with a null property name.", propertyName);
-
-            PropertyChangedEventHandler propChangedHandler = PropertyChanged;
-            if (propChangedHandler != null)
-                propChangedHandler(this, new PropertyChangedEventArgs(propertyName));
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
     }
 }
