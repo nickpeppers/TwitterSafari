@@ -1,19 +1,26 @@
-﻿using LinqToTwitter;
-using System;
+﻿using System;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
+using System.Diagnostics;
 using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Threading.Tasks;
-using System.Diagnostics;
+using LinqToTwitter;
 
 namespace TwitterSafari.Models
 {
     public class TwitterViewModel : INotifyPropertyChanged
     {
         static readonly ISettings _settings = ServiceContainer.Resolve<ISettings>();
+        ApplicationOnlyAuthorizer _auth;
+        TwitterContext _twitterContext;
 
         public event PropertyChangedEventHandler PropertyChanged;
+
+        public TwitterViewModel()
+        {
+            InitTweetViewModel();
+        }
 
         ObservableCollection<Status> _tweets;
 
@@ -22,9 +29,6 @@ namespace TwitterSafari.Models
             get { return _tweets; }
             set
             {
-                if (_tweets == value)
-                    return;
-
                 _tweets = value;
                 OnPropertyChanged(nameof(Tweets));
             }
@@ -37,9 +41,6 @@ namespace TwitterSafari.Models
             get { return _currentUser; }
             set
             {
-                if (_currentUser == value)
-                    return;
-
                 _currentUser = value;
                 OnPropertyChanged(nameof(CurrentUser));
             }
@@ -52,20 +53,9 @@ namespace TwitterSafari.Models
             get { return _userStatus; }
             set
             {
-                if (_userStatus == value)
-                    return;
-
                 _userStatus = value;
                 OnPropertyChanged(nameof(UserStatus));
             }
-        }
-
-        ApplicationOnlyAuthorizer _auth;
-        TwitterContext _twitterContext;
-
-        public TwitterViewModel()
-        {
-            InitTweetViewModel();
         }
 
         public async void InitTweetViewModel()
