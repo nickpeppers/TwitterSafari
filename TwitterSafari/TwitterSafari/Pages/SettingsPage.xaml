@@ -1,15 +1,17 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <ContentPage 
     xmlns="http://xamarin.com/schemas/2014/forms" 
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
     x:Class="TwitterSafari.Pages.SettingsPage"
     BackgroundColor="Black">
-    <Grid>
-        <Grid.RowDefinitions>
-            <RowDefinition/>
-            <RowDefinition Height="Auto"/>
-        </Grid.RowDefinitions>
-        <Entry Margin="15,10" x:Name="_entry1" Text="{Binding TweetCount, Mode=TwoWay}" Placeholder="Tweets Retrieved" BackgroundColor="White" Keyboard="Numeric" VerticalOptions="Start"/>
-        <Button Margin="15,10" Grid.Row="1" Text="Close" Clicked="CloseClicked" BackgroundColor="White"/>
-    </Grid>
+    <ContentPage.Content>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+            <Entry Margin="15,10" x:Name="_entry1" Text="{Binding TweetCount, Mode=TwoWay}" Placeholder="Tweets Retrieved" BackgroundColor="White" Keyboard="Numeric" VerticalOptions="Start"/>
+            <Button Margin="15,10" Grid.Row="1" Text="Close" Clicked="CloseClicked" BackgroundColor="White"/>
+        </Grid>
+    </ContentPage.Content>
 </ContentPage>

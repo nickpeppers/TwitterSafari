@@ -15,11 +15,6 @@ namespace TwitterSafari.UWP
         {
             this.InitializeComponent();
             this.Suspending += OnSuspending;
-
-            ServiceContainer.Register<ISharingService>(() => new SharingService());
-            ServiceContainer.Register<ISettings>(() => new WindowsSettings());
-            ServiceContainer.Register(() => new TwitterViewModel());
-            ServiceContainer.Register(() => new SettingsPageViewModel());
         }
 
         protected override void OnLaunched(LaunchActivatedEventArgs e)

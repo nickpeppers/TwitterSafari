@@ -2,7 +2,7 @@
 using TwitterSafari.Models;
 using Xamarin.Forms;
 
-namespace TwitterSafari.Pages
+namespace TwitterSafari
 {
     public partial class UserStatusPage : ContentPage
     {

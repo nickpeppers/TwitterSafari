@@ -1,9 +1,10 @@
 ﻿using System;
 using System.Threading.Tasks;
 using TwitterSafari.Models;
+using TwitterSafari.Pages;
 using Xamarin.Forms;
 
-namespace TwitterSafari.Pages
+namespace TwitterSafari
 {
     public partial class MainPage : ContentPage
     {

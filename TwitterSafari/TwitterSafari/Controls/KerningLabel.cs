@@ -1,4 +1,6 @@
-﻿using Xamarin.Forms;
+﻿using System.Globalization;
+using System.Runtime.CompilerServices;
+using Xamarin.Forms;
 
 namespace TwitterSafari
 {
